@@ -8,7 +8,7 @@ type ButtonProps = {
 
 function Button({className, isLoading, children}: ButtonProps) {
   return (
-    <button className={`w-full bg-blue-500 text-white rounded-sm hover:opacity-90 transition-opacity flex items-center justify-center h-10 disabled:opacity-50 ${className}`} disabled={isLoading}>
+    <button className={` bg-blue-500 text-white rounded-sm hover:opacity-90 transition-opacity flex items-center justify-center h-10 disabled:opacity-50 ${className}`} disabled={isLoading}>
       {isLoading ? (
         <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>

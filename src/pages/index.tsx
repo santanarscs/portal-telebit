@@ -54,7 +54,7 @@ export default function Login() {
               className="mb-4"
               {...register('password')}
             />
-            <Button isLoading={formState.isSubmitting}>Entrar</Button>
+            <Button className="w-full" isLoading={formState.isSubmitting}>Entrar</Button>
           </form>
         </div>
       </div>

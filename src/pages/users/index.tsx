@@ -1,4 +1,5 @@
 import NextLink from 'next/link'
+import Image from 'next/image'
 import { PencilAltIcon, TrashIcon, DocumentSearchIcon } from '@heroicons/react/outline'
 import { Header } from "../../components/layout/Header";
 import { Sidebar } from "../../components/Sidebar";
@@ -37,7 +38,7 @@ export default function Users() {
               {users.map(user => (
                 <tr key={user.id}>
                   <td className="px-6 py-4 text-gray-800">
-                    <img className="h-9 w-9 rounded-full shadow-md" src={user.avatar} alt={user.name} />
+                    <Image className="h-9 w-9 rounded-full shadow-md" src={user.avatar} alt={user.name} />
                   </td>
                   <td className="px-6 py-4 text-gray-800">{user.name}</td>
                   <td className="px-6 py-4 text-gray-800">{user.email}</td>

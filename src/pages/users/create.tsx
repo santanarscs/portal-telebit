@@ -9,25 +9,37 @@ import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Input } from '../../components/forms/Input';
 import { Button } from '../../components/forms/Button';
+import { DatePicker } from '../../components/forms/DatePicker';
+import { Switch } from '../../components/forms/Switch';
 
 type CreateUserFormData = {
   name: string;
   email: string
+  avatar: string;
+  birthday: string;
+
   password: string;
   password_confirmation: string;
+
+  isAdmin: boolean;
 }
 
 const createUserFormSchema = yup.object().shape({
   name: yup.string().required('Nome obrigatório'),
   email: yup.string().required('E-mail obrigatório').email('E-mail inválido'),
+  avatar: yup.string(),
+  birthday: yup.string(),
+
   password: yup.string().required('Senha obrigatória').min(6, 'No mínimo 6 caracteres'),
-  password_confirmation: yup.string().oneOf([null, yup.ref('password') ], 'As senhas precisam ser iguais')
+  password_confirmation: yup.string().oneOf([null, yup.ref('password')], 'As senhas precisam ser iguais'),
+  
+  isAdmin: yup.boolean()
 })
 
 export default function Create() {
   const router = useRouter()
 
-  const { register, handleSubmit, formState} = useForm({
+  const { register, control, handleSubmit, formState} = useForm({
     resolver: yupResolver(createUserFormSchema)
   })
   const handleCreateUser: SubmitHandler<CreateUserFormData> = async (values) => {
@@ -47,12 +59,32 @@ export default function Create() {
           </div>
           <form onSubmit={handleSubmit(handleCreateUser)}>
             <div className="flex space-x-2 mb-4">
-              <Input name="name" type="text" error={errors.name} {...register('name')} label="Nome Completo" />
-              <Input name="email" type="email" error={errors.email} {...register('email')} label="E-mail" />
+              <Input name="name" placeholder="Nome completo" type="text" error={errors.name} {...register('name')} label="Nome Completo" />
+              <Input name="email" placeholder="colaborador@gmail.com" type="email" error={errors.email} {...register('email')} label="E-mail" />
             </div>
             <div className="flex space-x-2 mb-4">
-              <Input name="password" error={errors.password} {...register('password')} type="password" label="Senha" />
-              <Input name="password_confirmation" error={errors.password_confirmation} {...register('password_confirmation')} type="password" label="Confirmação de senha" />
+              <Input name="password" placeholder="******" error={errors.password} {...register('password')} type="password" label="Senha" />
+              <Input name="password_confirmation" placeholder="******" error={errors.password_confirmation} {...register('password_confirmation')} type="password" label="Confirmação de senha" />
+            </div>
+            <div className="flex space-x-2 mb-4">
+              <DatePicker
+                name="birthday"
+                label="Data de aniversário"
+                control={control}
+                placeholder="Data de aniversário"
+                isRequired={false}
+                error={errors.birthday}
+
+                {...register('birthday')} />
+            </div>
+            <div>
+              <Switch
+                name="isAdmin"
+                label="Administrador"
+                control={control}
+                error={errors.isAdmin}
+                {...register('birthday')}
+              />
             </div>
             <div className=" flex justify-end mt-6">
               <Button className="w-32" isLoading={formState.isSubmitting}>Salvar</Button>

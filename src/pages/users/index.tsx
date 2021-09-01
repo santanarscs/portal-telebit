@@ -5,8 +5,10 @@ import { Header } from "../../components/layout/Header";
 import { Sidebar } from "../../components/Sidebar";
 import { Pagination } from '../../components/Pagination';
 import usersData from '../../../public/users.json'
+import { useRouter } from 'next/router';
 
 export default function Users() {
+  const router = useRouter()
   const users = usersData;
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
@@ -37,15 +39,15 @@ export default function Users() {
             <tbody className="divide-y divide-gray-200">
               {users.map(user => (
                 <tr key={user.id}>
-                  <td className="px-6 py-4 text-gray-800">
-                    <Image className="h-9 w-9 rounded-full shadow-md" src={user.avatar} alt={user.name} />
+                  <td className="px-4 py-2 text-gray-800">
+                    <Image className="h-9 w-9 rounded-full shadow-md" src={user.avatar} alt={user.name} width="50" height="50" />
                   </td>
-                  <td className="px-6 py-4 text-gray-800">{user.name}</td>
-                  <td className="px-6 py-4 text-gray-800">{user.email}</td>
-                  <td className="px-6 py-4 text-gray-800">{user.phone}</td>
-                  <td className="px-6 py-4 text-gray-800">{user.location}</td>
-                  <td className="px-6 py-4 text-center space-x-1">
-                    <button className="bg-blue-500 text-white rounded-sm p-1 hover:opacity-90 transition-opacity">
+                  <td className="px-4 py-2 text-gray-800">{user.name}</td>
+                  <td className="px-4 py-2 text-gray-800">{user.email}</td>
+                  <td className="px-4 py-2 text-gray-800">{user.phone}</td>
+                  <td className="px-4 py-2 text-gray-800">{user.location}</td>
+                  <td className="px-4 py-2 text-center space-x-1">
+                    <button onClick={() => router.push(`/users/${user.id}/detail`)} className="bg-blue-500 text-white rounded-sm p-1 hover:opacity-90 transition-opacity">
                       <DocumentSearchIcon className="h-4 w-4" />
                     </button>
                     <button className="bg-green-500 text-white rounded-sm p-1 hover:opacity-90 transition-opacity">

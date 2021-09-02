@@ -34,7 +34,7 @@ export default function Login() {
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-800">Entre com a sua conta</h2>
         </div>
-        <div className="rounded-md shadow-md bg-white p-10 space-y-4">
+        <div className="rounded-sm shadow-md bg-white p-10 space-y-4">
           <form onSubmit={handleSubmit(handleSignIn)}>
             <Input 
               name="email"

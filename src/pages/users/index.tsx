@@ -15,13 +15,13 @@ export default function Users() {
       <Header />
       <div className="flex my-6 px-6 max-w-screen-2xl">
         <Sidebar />
-        <div className="flex-1 rounded-md bg-white shadow-md p-8">
+        <div className="flex-1 rounded-sm bg-white shadow-md p-8">
           <div className="flex mb-8 justify-between items-center">
             <div>
               <h1 className="font-semibold text-lg text-gray-800">Colaboradores</h1>
             </div>
             <NextLink href="/users/create" passHref>
-              <a className="text-sm bg-blue-500 text-white py-2 px-4 rounded-md hover:opacity-90 transition-opacity">Criar novo</a>
+              <a className="text-sm bg-blue-500 text-white py-2 px-4 rounded-sm hover:opacity-90 transition-opacity">Criar novo</a>
             </NextLink>
 
           </div>

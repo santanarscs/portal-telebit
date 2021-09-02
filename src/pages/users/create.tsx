@@ -47,7 +47,7 @@ export default function Create() {
       <Header />
       <div className="flex my-6 px-6 max-w-screen-2xl">
         <Sidebar />
-        <div className="flex-1 rounded-md bg-white shadow-md p-8">
+        <div className="flex-1 rounded-sm bg-white shadow-md p-8">
           <div className="flex mb-8 justify-between items-center">
             <h1 className="font-semibold text-lg text-gray-800">Novo colaborador</h1>
           </div>

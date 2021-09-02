@@ -6,6 +6,7 @@ import { Sidebar } from "../../components/Sidebar";
 import { Pagination } from '../../components/Pagination';
 import usersData from '../../../public/users.json'
 import { useRouter } from 'next/router';
+import { SearchUser } from '../../components/SeachUser';
 
 export default function Users() {
   const router = useRouter()
@@ -16,7 +17,7 @@ export default function Users() {
       <div className="flex my-6 px-6 max-w-screen-2xl">
         <Sidebar />
         <div className="flex-1 rounded-sm bg-white shadow-md p-8">
-          <div className="flex mb-8 justify-between items-center">
+          <div className="flex mb-4 justify-between items-center">
             <div>
               <h1 className="font-semibold text-lg text-gray-800">Colaboradores</h1>
             </div>
@@ -25,6 +26,7 @@ export default function Users() {
             </NextLink>
 
           </div>
+          <SearchUser className="mb-4" />
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-200">
               <tr>

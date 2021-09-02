@@ -13,7 +13,7 @@ function Switch({ name, label, error, className, control }: SwitchProps) {
 
   return (
     <div className={`flex w-full ${className}`}>
-      <label htmlFor={name} className="mr-2">{label}</label>
+      <label htmlFor={name} className="text-gray-800 font-semibold mb-1 mr-2">{label}</label>
       <Controller
         control={control}
         name='testing'
@@ -22,14 +22,14 @@ function Switch({ name, label, error, className, control }: SwitchProps) {
             checked={field.value}
             onChange={field.onChange}
             className={`${
-                field.value ? 'bg-blue-500' : 'bg-gray-200'
+                field.value ? 'bg-blue-500' : 'bg-gray-400'
               } relative inline-flex items-center h-6 rounded-full w-11`}
             >
             <span className="sr-only">Enable notifications</span>
             <span
               className={`${
                 field.value ? 'translate-x-6' : 'translate-x-1'
-              } inline-block w-4 h-4 transform bg-white rounded-full`}
+              } inline-block w-4 h-4 transform bg-white rounded-full transition-transform`}
             />
           </HeadlessSwitch>
         )}

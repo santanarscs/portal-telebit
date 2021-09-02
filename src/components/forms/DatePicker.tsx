@@ -15,7 +15,7 @@ type DatePickerProps = {
 function DatePicker({ name, label, placeholder, error, className, control, isRequired = true }: DatePickerProps) {
   return (
     <div className={`flex flex-col w-full ${className}`}>
-      <label htmlFor={name}>{label} {!isRequired && <span className="text-gray-400 text-sm ml-1/2">(Opcional)</span>} </label>
+      <label htmlFor={name} className="text-gray-800 font-semibold mb-1">{label} {!isRequired && <span className="text-gray-400 text-sm ml-1/2">(Opcional)</span>} </label>
       <Controller
         control={control}
         name={name}

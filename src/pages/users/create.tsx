@@ -17,10 +17,7 @@ type CreateUserFormData = {
   email: string
   avatar: string;
   birthday: string;
-
-  password: string;
-  password_confirmation: string;
-
+  location: string;
   isAdmin: boolean;
 }
 
@@ -29,10 +26,7 @@ const createUserFormSchema = yup.object().shape({
   email: yup.string().required('E-mail obrigatório').email('E-mail inválido'),
   avatar: yup.string(),
   birthday: yup.string(),
-
-  password: yup.string().required('Senha obrigatória').min(6, 'No mínimo 6 caracteres'),
-  password_confirmation: yup.string().oneOf([null, yup.ref('password')], 'As senhas precisam ser iguais'),
-  
+  location: yup.string().required('Localização obrigatória'),
   isAdmin: yup.boolean()
 })
 
@@ -60,13 +54,10 @@ export default function Create() {
           <form onSubmit={handleSubmit(handleCreateUser)}>
             <div className="flex space-x-2 mb-4">
               <Input name="name" placeholder="Nome completo" type="text" error={errors.name} {...register('name')} label="Nome Completo" />
-              <Input name="email" placeholder="colaborador@gmail.com" type="email" error={errors.email} {...register('email')} label="E-mail" />
+              <Input name="email" placeholder="colaborador@telebitbrasil.com" type="email" error={errors.email} {...register('email')} label="E-mail" />
             </div>
             <div className="flex space-x-2 mb-4">
-              <Input name="password" placeholder="******" error={errors.password} {...register('password')} type="password" label="Senha" />
-              <Input name="password_confirmation" placeholder="******" error={errors.password_confirmation} {...register('password_confirmation')} type="password" label="Confirmação de senha" />
-            </div>
-            <div className="flex space-x-2 mb-4">
+              <Input name="location" placeholder="Rio de Janeiro" error={errors.location} {...register('location')} type="text" label="Localização" />
               <DatePicker
                 name="birthday"
                 label="Data de aniversário"

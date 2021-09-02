@@ -1,6 +1,4 @@
-import Link from 'next/link'
 import { useRouter } from "next/router";
-import { PencilAltIcon, TrashIcon, DocumentSearchIcon } from '@heroicons/react/outline'
 import { Header } from "../../components/layout/Header";
 import { Sidebar } from "../../components/Sidebar";
 
@@ -52,12 +50,12 @@ export default function Create() {
             <h1 className="font-semibold text-lg text-gray-800">Novo colaborador</h1>
           </div>
           <form onSubmit={handleSubmit(handleCreateUser)}>
-            <div className="flex space-x-2 mb-4">
-              <Input name="name" placeholder="Nome completo" type="text" error={errors.name} {...register('name')} label="Nome Completo" />
-              <Input name="email" placeholder="colaborador@telebitbrasil.com" type="email" error={errors.email} {...register('email')} label="E-mail" />
+            <div className="flex flex-col lg:flex-row lg:space-x-2 lg:mb-4">
+              <Input className="mb-2 lg:mb-0" name="name" placeholder="Nome completo" type="text" error={errors.name} {...register('name')} label="Nome Completo" />
+              <Input className="mb-2 lg:mb-0" name="email" placeholder="colaborador@telebitbrasil.com" type="email" error={errors.email} {...register('email')} label="E-mail" />
             </div>
-            <div className="flex space-x-2 mb-4">
-              <Input name="location" placeholder="Rio de Janeiro" error={errors.location} {...register('location')} type="text" label="Localização" />
+            <div className="flex flex-col lg:flex-row  lg:space-x-2 lg:mb-4">
+              <Input className="mb-2 lg:mb-0" name="location" placeholder="Rio de Janeiro" error={errors.location} {...register('location')} type="text" label="Localização" />
               <DatePicker
                 name="birthday"
                 label="Data de aniversário"
@@ -65,7 +63,7 @@ export default function Create() {
                 placeholder="Data de aniversário"
                 isRequired={false}
                 error={errors.birthday}
-
+                className="mb-2 lg:mb-0"
                 {...register('birthday')} />
             </div>
             <div>
@@ -78,7 +76,7 @@ export default function Create() {
               />
             </div>
             <div className=" flex justify-end mt-6">
-              <Button className="w-32" isLoading={formState.isSubmitting}>Salvar</Button>
+              <Button className="w-full lg:w-32" isLoading={formState.isSubmitting}>Salvar</Button>
             </div>
           </form>
         </div>

@@ -36,12 +36,12 @@ function UpdateProfileForm() {
 
   return (
     <form onSubmit={handleSubmit(handleUpdateUser)}>
-      <div className="flex space-x-2 mb-4">
-        <Input name="name" placeholder="Nome completo" type="text" error={errors.name} {...register('name')} label="Nome Completo" />
-        <Input name="email" placeholder="colaborador@telebitbrasil.com" type="email" error={errors.email} {...register('email')} label="E-mail" />
+      <div className="flex flex-col lg:flex-row lg:space-x-2 lg:mb-4">
+        <Input className="mb-2 lg:mb-0" name="name" placeholder="Nome completo" type="text" error={errors.name} {...register('name')} label="Nome Completo" />
+        <Input className="mb-2 lg:mb-0" name="email" placeholder="colaborador@telebitbrasil.com" type="email" error={errors.email} {...register('email')} label="E-mail" />
       </div>
-      <div className="flex space-x-2 mb-4">
-        <Input name="location" placeholder="Rio de Janeiro" error={errors.location} {...register('location')} type="text" label="Localização" />
+      <div className="flex flex-col lg:flex-row lg:space-x-2 lg:mb-4">
+        <Input className="mb-2 lg:mb-0" name="location" placeholder="Rio de Janeiro" error={errors.location} {...register('location')} type="text" label="Localização" />
         <DatePicker
           name="birthday"
           label="Data de aniversário"
@@ -52,13 +52,13 @@ function UpdateProfileForm() {
 
           {...register('birthday')} />
       </div>
-      <div className="flex space-x-2 mb-4">
-        <Input name="password" placeholder="*****" type="password" error={errors.password} {...register('password')} label="Senha Atual" />
-        <Input name="new_password" placeholder="*****" type="password" error={errors.new_password} {...register('new_password')} label="Nova Senha" />
-        <Input name="confirm_password" placeholder="*****" type="password" error={errors.confirm_password} {...register('confirm_password')} label="Confirme a Senha" />
+      <div className="flex flex-col lg:flex-row lg:space-x-2 lg:mb-4">
+        <Input className="mb-2 lg:mb-0" name="password" placeholder="*****" type="password" error={errors.password} {...register('password')} label="Senha Atual" />
+        <Input className="mb-2 lg:mb-0" name="new_password" placeholder="*****" type="password" error={errors.new_password} {...register('new_password')} label="Nova Senha" />
+        <Input className="mb-2 lg:mb-0" name="confirm_password" placeholder="*****" type="password" error={errors.confirm_password} {...register('confirm_password')} label="Confirme a Senha" />
       </div>
       <div className="flex justify-end mt-6">
-        <Button className="w-32">Atualizar</Button>
+        <Button className="w-full lg:w-32">Atualizar</Button>
       </div>
     </form> 
   )

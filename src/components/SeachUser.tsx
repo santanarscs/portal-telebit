@@ -11,7 +11,7 @@ function SearchUser({className}: SearchUser) {
     >
       <SearchIcon className="h-4 w-4 text-gray-500 mr-2" />
       <input
-        className="focus:outline-none"
+        className="focus:outline-none w-full"
         type="text" 
         placeholder="Busque por um usuário"
       />

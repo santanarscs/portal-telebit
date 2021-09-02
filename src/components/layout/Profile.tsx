@@ -6,7 +6,7 @@ function Profile() {
   return (
     <div className="flex items-center">
       <div className="flex flex-col items-end mr-4">
-        <h2 className="text-md font-gray-800">Usuário logado</h2>
+        <h2 className="text-md font-gray-800">Jhon Doe</h2>
         <button className="flex items-center text-red-500 text-sm mt-1/2 hover:opacity-75 transition-opacity">
           <LogoutIcon className="h-4 w-4" />
           Sair

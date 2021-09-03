@@ -5,7 +5,7 @@ export default function Dashboard() {
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
       <Header />
-      <div className="flex my-6 px-6 max-w-screen-2xl">
+      <div className="flex my-6 px-6 w-full m-auto max-w-screen-2xl">
         <Sidebar />
         <div className="flex-1 gap-4 flex flex-col">
           <h1 className="text-xl text-gray-800">Bem vindo(a), Jhon Doe</h1>
